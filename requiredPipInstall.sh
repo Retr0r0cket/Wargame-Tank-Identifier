@@ -1,1 +1,1 @@
-pip install pillow
+pip install pillow pandas

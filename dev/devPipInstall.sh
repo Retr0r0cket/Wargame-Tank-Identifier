@@ -1,1 +1,1 @@
-pip install tensorflow keras pillow
+pip install tensorflow keras pillow opencv
