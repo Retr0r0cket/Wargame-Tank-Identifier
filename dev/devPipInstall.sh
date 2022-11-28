@@ -1,1 +1,0 @@
-pip install tensorflow keras pillow opencv

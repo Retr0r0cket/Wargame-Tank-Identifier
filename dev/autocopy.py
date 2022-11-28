@@ -1,12 +1,17 @@
 from PIL import ImageGrab
-import subprocess
 import os
+from configparser import ConfigParser
 
 def clipboardGrab(img):
     while True:
         newImg = ImageGrab.grabclipboard()
         if newImg != img:
             return newImg
+
+config = ConfigParser()
+config.read('config.ini')
+
+DIR = config.get('settings', 'directory')
 
 for faction in ['NATO', 'PACT']:
     if faction == 'NATO':
@@ -16,14 +21,12 @@ for faction in ['NATO', 'PACT']:
     for country in countries:
         for tank in range(int(input("Number of tanks for " + country + ": "))):
             tankName = input("Tank model: ")
-            #source: https://stackoverflow.com/questions/3730964/python-script-execute-commands-in-terminal
             try:
-                os.makedirs('./Images/' + faction + '/' + country + '/' + tankName)
+                os.makedirs('/{DIR}/{faction}/{country}/{tankName}')
             except:
                 pass
-            # source: https://stackoverflow.com/questions/7045264/how-do-i-read-a-jpg-or-png-from-the-windows-clipboard-in-python-and-vice-versa
+
             img = ImageGrab.grabclipboard()
             for image in range(int(input("Number of images: "))):
                 img = clipboardGrab(img)
-                # source: https://www.geeksforgeeks.org/python-pil-image-save-method/
-                img.save('../Images/' + faction + '/' + country + '/' + tankName)
+                img.save('{DIR}/{faction}/{country}/{tankName}')

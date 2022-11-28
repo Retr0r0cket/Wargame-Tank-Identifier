@@ -1,18 +1,17 @@
-import sys
 import os
 import cv2
+from configparser import ConfigParser
     
-# source: https://stackoverflow.com/questions/973473/getting-a-list-of-all-subdirectories-in-the-current-directory\
 def fast_scandir(dirname):
     subfolders= [f.path for f in os.scandir(dirname) if f.is_dir()]
     for dirname in list(subfolders):
         subfolders.extend(fast_scandir(dirname))
     return subfolders
 
-if len(sys.argv) < 2:
-    DIR = './Images'
-else:
-    DIR = sys.argv[1]
+config = ConfigParser()
+config.read('config.ini')
+
+DIR = config.get('settings', 'directory')
     
 subDIRs = fast_scandir(DIR)
 bad_list=[]
