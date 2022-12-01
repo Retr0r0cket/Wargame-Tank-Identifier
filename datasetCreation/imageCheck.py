@@ -34,12 +34,12 @@ for subDIR in subDIRs:
 for image in bad_list:
     os.remove(image) 
 
-minLength = minimum(len(os.listdir(subDIRs)))
+minLength = min(len(os.listdir(subDIRs)))
 for directory in subDIRs:
     filesList = os.listdir(directory)
-    if len(filesList) > minFiles:
-    for file in filesList[directory][minFiles:]:
-        os.remove(directory + '/' + file)
+    if len(filesList) > minLength:
+        for file in filesList[directory][minLength:]:
+            os.remove(directory + '/' + file)
         
-for directory in subDIRS:
+for directory in subDIRs:
     print(len(os.listdir(directory)))
