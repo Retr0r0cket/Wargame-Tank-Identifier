@@ -10,10 +10,9 @@ def fast_scandir(dirname):
 
 config = ConfigParser()
 config.read('config.ini')
+rootDIR = config.get('settings', 'directory')
+subDIRs = fast_scandir(rootDIR)
 
-DIR = config.get('settings', 'directory')
-    
-subDIRs = fast_scandir(DIR)
 bad_list=[]
 for subDIR in subDIRs:
     file_list=os.listdir(subDIR) # create list of files in class directory
@@ -31,7 +30,16 @@ for subDIR in subDIRs:
                     size=img.shape
                 except:
                     # print(f'file {fpath} is not a valid image file ')
-                    bad_list.append(fpath)
-         
+                    bad_list.append(fpath)             
 for image in bad_list:
     os.remove(image) 
+
+minLength = minimum(len(os.listdir(subDIRs)))
+for directory in subDIRs:
+    filesList = os.listdir(directory)
+    if len(filesList) > minFiles:
+    for file in filesList[directory][minFiles:]:
+        os.remove(directory + '/' + file)
+        
+for directory in subDIRS:
+    print(len(os.listdir(directory)))
