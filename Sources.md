@@ -5,4 +5,5 @@
 - Directory creation: https://stackoverflow.com/questions/3730964/python-script-execute-commands-in-terminal
 - Pillow: https://stackoverflow.com/questions/7045264/how-do-i-read-a-jpg-or-png-from-the-windows-clipboard-in-python-and-vice-versa
 - Image saving: https://www.geeksforgeeks.org/python-pil-image-save-method/
-- Efficient directory listing: https://stackoverflow.com/questions/973473/getting-a-list-of-all-subdirectories-in-the-current-directory\
+- Text file creation: https://www.guru99.com/reading-and-writing-files-in-python.html
+- Text file parsing: https://www.pythontutorial.net/python-basics/python-read-text-file/
