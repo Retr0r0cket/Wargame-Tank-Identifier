@@ -6,7 +6,7 @@ from sys import argv
 
 def clipboardGrab(img):
     while True:
-        sleep(1)
+        sleep(0.25)
         newImg = ImageGrab.grabclipboard()
         if newImg != img:
             return newImg
