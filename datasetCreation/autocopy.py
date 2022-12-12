@@ -16,12 +16,6 @@ config.read('config.ini')
 DIR = config.get('settings', 'directory')
 DIRList = []
 
-argvAccepted = ['True', 'y', 'yes', 'Y', 'Yes']
-argLength = len(argv)
-if argLength == 3 and argv[2] in argvAccepted:
-    import shutil
-    shutil.rmtree(DIR)
-
 for faction in ['NATO', 'PACT']:
     if faction == 'NATO':
         countries = ['United States', 'France', 'United Kingdom', 'FRG', 'Canada', 'Denmark', 'Norway', 'Sweden']
@@ -42,10 +36,3 @@ for faction in ['NATO', 'PACT']:
                 img = clipboardGrab(img)
                 img.save(directory+"/"+tankName+"_"+str(image)+".png", 'PNG')
                 print("Image " + str(image+1) + "/" + str(numOfTanks) + " saved")
-
-# write directories to text file toggle 
-if argLength >= 2 and argv[1] in argvAccepted:
-    file = open("./datasetCreation/factions.txt", "w")
-    for directory in DIRList:
-        file.write(directory + "\n")
-    file.close
