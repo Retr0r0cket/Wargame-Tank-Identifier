@@ -2,7 +2,6 @@ from PIL import ImageGrab
 import os
 from configparser import ConfigParser
 from time import sleep
-from sys import argv
 
 def clipboardGrab(img):
     while True:
